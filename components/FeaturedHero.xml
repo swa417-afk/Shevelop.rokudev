@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="FeaturedHero" extends="Group">
+  <interface>
+    <field id="episode" type="assocarray" alwaysNotify="true" />
+    <field id="playRequested" type="assocarray" alwaysNotify="true" />
+  </interface>
+
+  <children>
+    <Poster id="heroThumb" width="1200" height="675" />
+    <Rectangle id="heroShade" width="1200" height="180" translation="[0, 520]" color="0x000000B0" />
+    <Label id="heroTitle" translation="[30, 545]" />
+    <Label id="heroMeta" translation="[30, 605]" />
+    <Rectangle id="playPill" width="200" height="56" translation="[30, 645]" color="0xFF1FB6FF" />
+    <Label id="playText" text="Play" translation="[100, 658]" />
+  </children>
+
+  <script type="text/brightscript" uri="pkg:/components/FeaturedHero.brs" />
+</component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="EpisodeCard" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" alwaysNotify="true" />
+  </interface>
+
+  <children>
+    <Poster id="poster" width="260" height="146" />
+    <Rectangle id="seasonBadge" width="80" height="30" translation="[10, 10]" color="0x9BFF00FF" visible="false" />
+    <Label id="seasonLabel" translation="[15, 15]" font="font:SmallBoldSystemFont" color="0x000000FF" />
+  </children>
+
+  <script type="text/brightscript" uri="pkg:/components/EpisodeCard.brs" />
+</component>

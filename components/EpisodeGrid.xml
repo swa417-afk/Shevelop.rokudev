@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="EpisodeGrid" extends="Group">
+  <interface>
+    <field id="feedUrl" type="string" alwaysNotify="true" />
+    <field id="episodeSelected" type="assocarray" alwaysNotify="true" />
+  </interface>
+
+  <children>
+    <Label id="title" text="Shevelop" translation="[0, 0]" />
+    <MarkupGrid
+      id="grid"
+      translation="[0, 60]"
+      numColumns="5"
+      itemSize="[260, 146]"
+      itemSpacing="[20, 20]"
+      itemComponentName="EpisodeCard"
+      focusBitmapUri=""
+    />
+    <TaskFetchFeed id="fetchTask" />
+  </children>
+
+  <script type="text/brightscript" uri="pkg:/components/EpisodeGrid.brs" />
+</component>

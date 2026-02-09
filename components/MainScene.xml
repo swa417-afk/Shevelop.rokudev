@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene">
+  <interface>
+    <field id="launchArgs" type="assocarray" alwaysNotify="true" />
+    <field id="exitApp" type="boolean" alwaysNotify="true" />
+  </interface>
+
+  <children>
+    <Poster id="bg" uri="pkg:/images/bg_home.png" width="1920" height="1080" />
+    <FeaturedHero id="featured" translation="[80, 150]" />
+    <EpisodeGrid id="episodeGrid" translation="[80, 880]" />
+    <EpisodeDetail id="episodeDetail" visible="false" translation="[60, 60]" />
+    <Poster id="splash" uri="pkg:/images/bg_splash.png" width="1920" height="1080" />
+    <Animation id="splashFade" duration="1.5" repeat="false" easeFunction="linear">
+      <FloatFieldInterpolator key="[0.0, 1.0]" keyValue="[1.0, 0.0]" fieldToInterp="splash.opacity" />
+    </Animation>
+  </children>
+
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+</component>
