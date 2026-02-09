@@ -1,0 +1,7 @@
+
+├── components/        # SceneGraph components
+├── source/            # BrightScript source files
+├── images/            # Channel UI assets
+├── manifest           # Roku app manifest
+├── README.md          # Project documentation
+└── LICENSE            # MIT License (code only)
