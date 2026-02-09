@@ -1,0 +1,13 @@
+# Episode Feed JSON Schema
+
+The Shevelop Roku Channel consumes a JSON feed structured as follows:
+
+## Root Object
+
+```json
+{
+  "provider": "Shevelop",
+  "language": "en",
+  "lastUpdated": "2026-02-09",
+  "episodes": []
+}
