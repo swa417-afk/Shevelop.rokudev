@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="EpisodeDetail" extends="Group">
+  <interface>
+    <field id="episode" type="assocarray" alwaysNotify="true" />
+    <field id="back" type="boolean" alwaysNotify="true" />
+  </interface>
+
+  <children>
+    <Poster id="thumb" width="640" height="360" />
+    <Label id="epTitle" translation="[0, 380]" />
+    <Label id="meta" translation="[0, 430]" />
+    <Label id="desc" translation="[0, 480]" width="900" numLines="6" />
+    <Video id="player" visible="false" />
+  </children>
+
+  <script type="text/brightscript" uri="pkg:/components/EpisodeDetail.brs" />
+</component>
