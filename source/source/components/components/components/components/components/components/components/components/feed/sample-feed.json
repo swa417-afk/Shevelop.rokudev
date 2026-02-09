@@ -1,0 +1,19 @@
+{
+  "provider": "Shevelop",
+  "language": "en",
+  "lastUpdated": "2026-02-09",
+  "episodes": [
+    {
+      "id": "ep001",
+      "title": "First Episode: Building Shevelop",
+      "guest": "TBD",
+      "description": "An opening episode introducing the mission and what to expect.",
+      "thumbnail": "https://example.com/thumbs/ep001.jpg",
+      "videoUrl": "https://example.com/videos/ep001.m3u8",
+      "runtime": 1800,
+      "publishDate": "2026-02-15",
+      "season": 1,
+      "episodeNumber": 1
+    }
+  ]
+}
