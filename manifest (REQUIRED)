@@ -1,0 +1,23 @@
+title=Shevelop
+major_version=1
+minor_version=0
+build_version=00001
+
+mm_icon_focus_fhd=pkg:/images/channel_icon.png
+mm_icon_focus_hd=pkg:/images/channel_icon.png
+mm_icon_focus_sd=pkg:/images/channel_icon.png
+
+splash_screen_fhd=pkg:/images/channel_icon.png
+splash_screen_hd=pkg:/images/channel_icon.png
+splash_screen_sd=pkg:/images/channel_icon.png
+
+ui_resolutions=fhd,hd
+supports_input_launch=1
+disable_web_security=0
+
+bs_libs_required=roku_ads_lib
+
+
+Notes:
+Icons/splash here are fine for dev; Roku Store listing assets are separate in the dashboard.
+roku_ads_lib is safe even if you don’t use ads yet; you can remove later.
