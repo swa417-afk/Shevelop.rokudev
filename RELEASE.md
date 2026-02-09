@@ -1,325 +1,217 @@
-# Release Guide — Shevelop Roku Channel
+# Release & Roku Channel Store Submission Guide
 
-This guide covers the complete process for submitting and updating the Shevelop Roku Channel in the Roku Channel Store.
-
----
-
-## Pre-Release Checklist
-
-Before submitting to Roku, ensure all items are complete:
-
-### 1. Technical Requirements
-- [ ] All items in `TESTING.md` pass
-- [ ] App installs and runs on physical Roku device
-- [ ] No crashes during 15-minute smoke test
-- [ ] All videos play successfully
-- [ ] Remote navigation works flawlessly
-- [ ] No errors in telnet logs (`telnet <ROKU_IP> 8085`)
-
-### 2. Content Requirements
-- [ ] All episode metadata is accurate (titles, descriptions, thumbnails)
-- [ ] Video URLs are production-ready (not test/staging)
-- [ ] All images meet Roku specifications
-- [ ] Content is appropriate and follows Roku guidelines
-
-### 3. Manifest Validation
-- [ ] `title` is correct
-- [ ] Version numbers incremented properly
-- [ ] `major_version`, `minor_version`, `build_version` updated
+This document outlines the steps required to prepare and submit the Shevelop Roku Channel to the Roku Channel Store.
 
 ---
 
-## Required Assets for Roku Channel Store
+## Pre-Submission Checklist
 
-Roku requires specific artwork for your channel listing. Prepare these before submission:
+Before submitting to Roku, ensure all items are completed:
 
-### Channel Poster Art
-- **HD Poster (540x405)** — Main channel icon
-  - Format: PNG or JPG
-  - No transparency
-  - Clearly readable text/logo
-
-- **FHD Poster (1920x1440)** — Optional but recommended
-  - Format: PNG or JPG
-
-### Screenshots (At Least 3 Required)
-- **FHD Screenshots (1920x1080)**
-  - Show key app features
-  - Include: Home screen, detail screen, playback
-  - No black bars or letterboxing
-  - Clean, professional captures
-
-### Splash Screen (Optional but Recommended)
-- **FHD Splash (1920x1080)**
-  - Displays while channel loads
-  - Matches brand aesthetic
+- [ ] All tests in `TESTING.md` pass
+- [ ] App installs and runs on at least 2 physical Roku devices
+- [ ] No errors in telnet logs during 5+ minute runtime
+- [ ] All content loads from production feed URLs
+- [ ] Branding assets finalized (splash, icons, backgrounds)
+- [ ] Legal requirements met (content rights, privacy policy)
 
 ---
 
-## Roku Developer Account Setup
+## Required Assets for Roku Store
 
-1. **Create Roku Developer Account**
-   - Visit: https://developer.roku.com
-   - Sign up with business email
-   - Complete profile
+### Channel Icons
+- **HD Poster (540x405 PNG)** — Main channel icon
+- **FHD Poster (1920x1080 PNG)** — Featured channel poster
 
-2. **Enroll in Partner Program** (if monetizing)
-   - Complete tax forms
-   - Set up payment information
+### Screenshots
+- At least **3-6 screenshots** (1920x1080 PNG)
+- Show: Home screen, Detail screen, Playback screen
+- Must represent actual app UI (no mockups)
 
-3. **Create Channel Listing**
-   - Navigate to Developer Dashboard
-   - Click "Manage My Channels"
-   - Select "Add Public Channel" or "Add Private Channel"
+### Splash Screen
+- **FHD Splash (1920x1080 PNG)** — `images/bg_splash.png`
 
 ---
 
-## Channel Submission Steps
+## Manifest Requirements for Store Submission
 
-### Step 1: Package Your Channel
+Update `manifest` with production values:
 
-On your Roku device (developer mode enabled):
+```ini
+title=Shevelop
+subtitle=Premium Entertainment
+major_version=1
+minor_version=0
+build_version=1
 
-1. Access Developer Settings:
-   - Go to `http://<ROKU_IP>` in browser
-   - Enter developer credentials
+mm_icon_focus_hd=pkg:/images/channel_icon_hd.png
+mm_icon_focus_fhd=pkg:/images/channel_icon_fhd.png
+splash_screen_hd=pkg:/images/bg_splash.png
+splash_screen_fhd=pkg:/images/bg_splash.png
 
-2. Package the channel:
-   - Click "Packager"
-   - Enter signing password (save this!)
-   - Click "Package"
-   - Download the `.pkg` file
+splash_color=#1A1A1A
+splash_min_time=1500
+```
 
-### Step 2: Upload to Roku
+---
 
-1. Log into Roku Developer Dashboard
-2. Select your channel
-3. Navigate to "Package Upload"
-4. Upload `.pkg` file
-5. Fill in version notes
+## Content Feed Requirements
 
-### Step 3: Complete Channel Information
+Ensure production feed:
+- Is hosted on HTTPS
+- Returns valid JSON
+- Includes all required episode fields
+- Video URLs are publicly accessible
+- HLS streams are properly formatted
 
-#### Channel Properties
+Test feed before submission:
+```bash
+curl -s https://your-feed-url.com/episodes.json | jq
+```
+
+---
+
+## Store Listing Information
+
+Prepare the following for Roku Developer Dashboard:
+
+### Channel Information
 - **Channel Name:** Shevelop
-- **Description:** (Write compelling 200-500 character description)
+- **Description (short):** 1-2 sentence tagline
+- **Description (long):** Full description (up to 250 words)
+- **Category:** Entertainment, Talk Show, or Education
+- **Language:** English (US)
+- **Country Availability:** United States (expand as needed)
+
+### Contact & Support
 - **Developer Name:** Your name or company
-- **Support Email:** Support contact
-- **Support URL:** Website or support page
-
-#### Categories
-- Select primary category (e.g., "Entertainment", "Talk Shows")
-- Add secondary category if applicable
-
-#### Pricing
-- Select "Free" (or pricing model if applicable)
-
-#### Languages
-- Select supported languages (English minimum)
-
-### Step 4: Upload Assets
-- HD Poster (540x405)
-- FHD Poster (1920x1440) — optional
-- 3-6 Screenshots (1920x1080)
-- Splash screen (optional)
-
-### Step 5: Content Rating
-- Complete Roku's content questionnaire
-- Select appropriate rating (G, PG, PG-13, etc.)
-- Be honest about content
-
-### Step 6: Privacy Policy
-- Provide privacy policy URL
-- Required if collecting any user data
-
-### Step 7: Submit for Review
-- Review all information
-- Click "Submit Channel"
-- Wait for Roku review (typically 3-7 business days)
+- **Developer Email:** Support email address
+- **Website URL:** Official website
+- **Privacy Policy URL:** Required (see below)
 
 ---
 
-## Post-Submission
+## Privacy Policy Requirement
 
-### Review Process
-- Roku reviews for:
-  - Technical compliance
-  - Content appropriateness
-  - Metadata accuracy
-  - Policy compliance
+Roku **requires** a privacy policy URL for all channels.
 
-### Possible Outcomes
-1. **Approved** — Channel goes live
-2. **Rejected** — Fix issues and resubmit
-3. **Changes Requested** — Address feedback and update
+Minimum required content:
+- What data you collect (if any)
+- How data is used
+- Third-party services (analytics, ads, CDN)
+- Contact information
+
+Host at: `https://yourwebsite.com/privacy`
 
 ---
 
-## Updating an Existing Channel
+## Packaging the Channel for Submission
 
-### For Bug Fixes or Minor Updates
-1. Increment `build_version` in manifest
-2. Package new `.pkg` file
-3. Upload to existing channel in dashboard
-4. Add release notes
-5. Submit for review
+### 1. Create Production Build
 
-### For Major Features
-1. Increment `minor_version` or `major_version`
-2. Update screenshots if UI changed
-3. Update channel description if needed
-4. Follow same packaging and upload process
-
----
-
-## Version Numbering Strategy
-
-Use semantic versioning:
-
-- **major_version** — Breaking changes or complete overhauls
-- **minor_version** — New features, significant updates
-- **build_version** — Bug fixes, small improvements
-
-Example progression:
+Ensure directory structure:
 ```
-1.0.1 → 1.0.2  (bug fix)
-1.0.2 → 1.1.0  (new featured hero component)
-1.1.0 → 2.0.0  (complete UI redesign)
+manifest
+source/
+components/
+images/
+feed/ (optional, for local testing)
 ```
 
----
+### 2. Create ZIP Package
 
-## Roku Certification Checklist
+**From repo root:**
+```bash
+zip -r shevelop-roku-v1.0.zip manifest source components images
+```
 
-### Technical
-- [ ] Channel launches in under 3 seconds on supported devices
-- [ ] No crashes during testing
-- [ ] Back button always works
-- [ ] Deep linking works (if implemented)
-- [ ] Video playback is smooth
+**Critical:** ZIP must NOT contain a parent folder.
 
-### Content
-- [ ] All content is licensed/owned
-- [ ] Metadata is accurate
-- [ ] No broken links or 404 errors
-- [ ] Content rating is appropriate
+### 3. Test ZIP on Device
 
-### UI/UX
-- [ ] Focus is always visible
-- [ ] Text is readable (contrast, font size)
-- [ ] Images are high quality
-- [ ] Navigation is intuitive
+Sideload the exact ZIP you'll submit:
+1. Go to `http://<ROKU_IP>`
+2. Upload ZIP
+3. Run full smoke test (see `TESTING.md`)
 
 ---
 
-## Common Rejection Reasons (And How to Avoid)
+## Submission Process
 
-### 1. Poor Image Quality
-- Use high-resolution source images
-- No pixelation or compression artifacts
-- Follow exact dimension requirements
+### Step 1: Roku Developer Account
+- Create account at [developer.roku.com](https://developer.roku.com)
+- Enroll ($0 for public channels)
 
-### 2. Broken Functionality
-- Test on multiple Roku device models
-- Verify all videos play
-- Check all navigation paths
+### Step 2: Create Channel
+1. Go to Developer Dashboard
+2. Click "Add Public Channel"
+3. Fill in channel information
+4. Upload package ZIP
+5. Upload screenshots and icons
 
-### 3. Incomplete Metadata
-- Fill out all required fields
-- Provide accurate descriptions
-- Include support contact info
-
-### 4. Content Policy Violations
-- Follow Roku content guidelines
-- Accurate content rating
-- No prohibited content
-
-### 5. Crashes or Errors
-- Run through `TESTING.md` completely
-- Check telnet logs for errors
-- Test on physical device, not just emulator
+### Step 3: Submit for Review
+- Review checklist
+- Submit channel
+- Roku review typically takes 3-7 business days
 
 ---
 
-## Testing Before Submission
+## Post-Submission Monitoring
 
-### Device Testing Matrix
-Test on at least these categories:
-- [ ] Roku Stick (low-end device)
-- [ ] Roku Ultra (high-end device)
-- [ ] Roku TV (if possible)
-
-### Playback Testing
-- [ ] Test all video formats (HLS, MP4)
-- [ ] Test with slow internet connection
-- [ ] Verify resume functionality
-- [ ] Test skip forward/backward
-
-### Stress Testing
-- [ ] Navigate rapidly through UI
-- [ ] Spam Back button
-- [ ] Let app idle for 10+ minutes
-- [ ] Exit and re-enter multiple times
+After approval:
+- Monitor feed reliability
+- Track error logs from production devices
+- Prepare update process for bug fixes
 
 ---
 
-## Private vs. Public Channels
+## Version Updates
 
-### Private Channel (Beta Testing)
-- Access code required
-- Not searchable in Roku Channel Store
-- Perfect for testing with limited audience
-- Can update without Roku review
+For subsequent releases:
 
-### Public Channel (Official Release)
-- Searchable in Roku Channel Store
-- Requires Roku review for all updates
-- Available to all Roku users
-- Professional submission required
-
-**Recommendation:** Start with Private Channel for beta testing, then convert to Public when ready.
+1. Update `build_version` in manifest
+2. Run full `TESTING.md` validation
+3. Package new ZIP
+4. Submit update via Developer Dashboard
+5. Include release notes describing changes
 
 ---
 
-## Post-Launch
+## Common Rejection Reasons
 
-### Monitor
-- Check Roku Developer Analytics
-- Monitor support email for issues
-- Watch for crash reports
-
-### Iterate
-- Gather user feedback
-- Fix bugs promptly
-- Plan feature updates
-
-### Promote
-- Share channel link: `https://channelstore.roku.com/details/<channel-id>`
-- Post on social media
-- Add to website
+Avoid these common issues:
+- Broken video links
+- Poor quality screenshots
+- Missing privacy policy
+- UI navigation issues
+- Crashes during review
+- Content rights violations
 
 ---
 
-## Support Resources
+## Emergency Hotfix Process
 
-- **Roku Developer Documentation:** https://developer.roku.com/docs
-- **Roku Developer Forum:** https://community.roku.com/
-- **Design Guidelines:** https://developer.roku.com/design
-- **Certification Checklist:** https://developer.roku.com/docs/developer-program/certification
+If critical bug found in production:
 
----
-
-## Emergency Rollback
-
-If critical bug discovered post-release:
-
-1. Package previous working version
-2. Upload as emergency update
-3. Explain issue in release notes
-4. Roku may expedite review for critical fixes
-
-Always keep previous `.pkg` files archived!
+1. Fix issue on `main` branch
+2. Increment `build_version`
+3. Full smoke test on 2+ devices
+4. Package and submit update immediately
+5. Contact Roku support for expedited review (if needed)
 
 ---
 
-**Ready to submit?** Run through this checklist one final time, then package and upload with confidence.
+## Support & Resources
+
+- **Roku Developer Docs:** https://developer.roku.com/docs
+- **Roku Forums:** https://community.roku.com
+- **Channel Store FAQ:** https://developer.roku.com/channel-store
+
+---
+
+**Next Steps:**
+1. Complete all items in Pre-Submission Checklist
+2. Prepare all required assets
+3. Test production feed
+4. Create Roku Developer account
+5. Submit channel
