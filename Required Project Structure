@@ -1,0 +1,18 @@
+shevelop-roku/
+├── manifest
+├── source/
+│   ├── main.brs
+│   └── utils.brs
+├── components/
+│   ├── MainScene.xml
+│   ├── MainScene.brs
+│   ├── EpisodeGrid.xml
+│   ├── EpisodeGrid.brs
+│   ├── EpisodeDetail.xml
+│   ├── EpisodeDetail.brs
+│   └── TaskFetchFeed.xml
+│       TaskFetchFeed.brs
+├── images/
+│   └── channel_icon.png   (optional for dev; store requires separate assets)
+└── feed/
+    └── sample-feed.json   (local sample, not required for Roku)
