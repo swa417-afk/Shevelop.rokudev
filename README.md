@@ -72,4 +72,4 @@ From the project root:
 3. Install and launch
 
 ### Debugging
-Use telnet:
+Use telnet: <ROKU_IP> 8085
