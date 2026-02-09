@@ -11,3 +11,66 @@ The Shevelop Roku Channel consumes a JSON feed structured as follows:
   "lastUpdated": "2026-02-09",
   "episodes": []
 }
+{
+
+Episode object
+  "id": "ep001",
+  "title": "Breaking Into Tech Without a Blueprint",
+  "guest": "Dr. Jane Smith",
+  "description": "A conversation on navigating tech careers without traditional paths.",
+  "thumbnail": "https://cdn.shevelop.com/thumbs/ep001.jpg",
+  "videoUrl": "https://cdn.shevelop.com/videos/ep001.mp4",
+  "runtime": 3600,
+  "publishDate": "2026-02-15",
+  "season": 1,
+  "episodeNumber": 1
+}
+Required Fields
+id
+title
+description
+thumbnail
+videoUrl
+Optional Fields
+guest
+season
+episodeNumber
+
+---
+
+# 6️⃣ GRANT / MEDIA PARTNER README
+
+Use this **outside GitHub** (PDF, Notion, pitch deck appendix).
+
+```md
+# Shevelop Roku Channel
+
+Shevelop is a digital media platform and Roku streaming channel focused on amplifying Black women and underrepresented voices in technology and STEM.
+
+## Mission
+To provide visibility, storytelling, and access to real career narratives in tech through long-form video conversations.
+
+## Platform
+- Roku Streaming Store
+- Living-room-first distribution
+- No paywall at launch
+
+## Audience
+- Women in STEM
+- Black and underrepresented technologists
+- Students, career-switchers, and early professionals
+
+## Content Format
+- Video podcast episodes
+- Guest-led conversations
+- Career, innovation, and leadership focus
+
+## Growth Strategy
+- Roku distribution
+- Community partnerships
+- Sponsorship-ready infrastructure
+- Future expansion to educational content
+
+## Status
+Channel in active development. Initial public launch planned following Season 1 completion.
+
